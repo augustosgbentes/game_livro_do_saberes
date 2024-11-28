@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=3 uid="uid://bb6jf4uu2nno7"]
+
+[ext_resource type="PackedScene" uid="uid://xnfj74wjtj5f" path="res://Cenas/npc_base.tscn" id="1_t2b3y"]
+[ext_resource type="Texture2D" uid="uid://cn1w0ip1thenf" path="res://Assets/NPCS/Geografia/SpriteSheet.png" id="2_mw7di"]
+[ext_resource type="Script" path="res://Scripts/npc_geografia.gd" id="2_sc74t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ouq"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s4y0"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyqlk"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sijq2"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ectw"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubx22"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs1pq"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70v3j"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fykkv"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74rd7"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67j2u"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_botcg"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt7pf"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc8m6"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0xg3"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wir"]
+atlas = ExtResource("2_mw7di")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xw2gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ouq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s4y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyqlk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sijq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ectw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubx22")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs1pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70v3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fykkv")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74rd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67j2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_botcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt7pf")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc8m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0xg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wir")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="NPC_geografia" instance=ExtResource("1_t2b3y")]
+script = ExtResource("2_sc74t")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_xw2gb")
+animation = &"walk_up"
+
+[node name="Timer" parent="." index="3"]
+autostart = true

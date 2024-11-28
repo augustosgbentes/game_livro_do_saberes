@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://bshybvwlasffe"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_ivjrh"]
+[ext_resource type="FontFile" uid="uid://dljs34xpcvkr6" path="res://EquipmentPro.otf" id="1_nurla"]
+[ext_resource type="Texture2D" uid="uid://e3o8plyb11n3" path="res://Assets/NPCS/NPCinicial/Faceset.png" id="2_cvuip"]
+
+[node name="Derrota" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ivjrh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.105882, 0.105882, 1)
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.5
+offset_top = 17.0
+offset_right = 69.5
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.442501, 7.58059e-07, 1.44392e-07, 1)
+theme_override_fonts/font = ExtResource("1_nurla")
+theme_override_font_sizes/font_size = 30
+text = "Você perdeu"
+
+[node name="Label2" type="Label" parent="Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 1.0
+offset_right = 57.0
+offset_bottom = 27.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_nurla")
+theme_override_font_sizes/font_size = 30
+text = "Você perdeu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -15.0
+offset_right = 62.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nurla")
+text = "Menu Principal"
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -7.5
+offset_right = 43.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_nurla")
+text = "Menu Principal"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_nurla")
+text = "Sair"
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Button2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -7.5
+offset_right = 74.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_nurla")
+text = "Sair"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 120.0
+offset_right = 56.0
+offset_bottom = 170.0
+texture = ExtResource("2_cvuip")
+flip_h = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 6.0
+offset_right = 295.0
+offset_bottom = 56.0
+texture = ExtResource("2_cvuip")
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/Button2" to="." method="_on_button_2_button_down"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsly082fewmp4"]
+
+[ext_resource type="Script" path="res://Scripts/coraçoes.gd" id="1_5hsmx"]
+[ext_resource type="Texture2D" uid="uid://cdksam6ph3me1" path="res://Assets/playerAssets/heart.png" id="1_ix23t"]
+
+[node name="Coraçoes" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 13)
+offset_right = 16.0
+offset_bottom = 13.0
+script = ExtResource("1_5hsmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_ix23t")
+centered = false
+hframes = 5

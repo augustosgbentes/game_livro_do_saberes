@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b77jy0jkyuc0t"]
+
+[ext_resource type="Script" path="res://Scripts/perguntas.gd" id="1_w62hf"]
+[ext_resource type="Texture2D" uid="uid://bg3pufhbju78g" path="res://Assets/Dialogo/Dialog/DialogueBoxSimple.png" id="2_3ov31"]
+[ext_resource type="FontFile" uid="uid://dljs34xpcvkr6" path="res://EquipmentPro.otf" id="3_jpy06"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fm0cc"]
+font = ExtResource("3_jpy06")
+font_size = 12
+
+[node name="Perguntas" type="Control" node_paths=PackedStringArray("question_label", "option_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w62hf")
+question_label = NodePath("NinePatchRect/VBoxContainer/Perguntas")
+option_container = NodePath("NinePatchRect/VBoxContainer/Alternativas")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 55.0
+offset_right = 248.0
+offset_bottom = 162.0
+texture = ExtResource("2_3ov31")
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 97.0
+color = Color(0.00213623, 0.00213623, 0.00213623, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 177.0
+offset_bottom = 71.0
+theme_override_constants/separation = 5
+metadata/_edit_group_ = true
+
+[node name="Perguntas" type="Label" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jpy06")
+theme_override_font_sizes/font_size = 2
+text = "PERGUNTA :)"
+label_settings = SubResource("LabelSettings_fm0cc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Alternativas" type="VBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2

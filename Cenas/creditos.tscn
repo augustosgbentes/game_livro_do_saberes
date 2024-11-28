@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjqe43wl7onm1"]
+
+[ext_resource type="Script" path="res://Scripts/creditos.gd" id="1_aoauo"]
+[ext_resource type="FontFile" uid="uid://dljs34xpcvkr6" path="res://EquipmentPro.otf" id="1_ksd06"]
+[ext_resource type="Texture2D" uid="uid://d11r6lufbnicf" path="res://6036363.jpg" id="2_mxj3w"]
+[ext_resource type="AudioStream" uid="uid://2amqhkyleujx" path="res://1. Title Screen.mp3" id="4_jh3t7"]
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aoauo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 175.0
+texture = ExtResource("2_mxj3w")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Feito por :"
+
+[node name="Label" type="Label" parent="VBoxContainer/Label2"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Feito por :"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Nícolas Queiroga"
+
+[node name="Label" type="Label" parent="VBoxContainer/Label5"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Nícolas Queiroga"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Augusto Bentes"
+
+[node name="Label" type="Label" parent="VBoxContainer/Label3"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Augusto Bentes"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "David Moura"
+
+[node name="Label" type="Label" parent="VBoxContainer/Label4"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "David Moura"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -24.0
+offset_right = 46.0
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_ksd06")
+text = "Voltar"
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jh3t7")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

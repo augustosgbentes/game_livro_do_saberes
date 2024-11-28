@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp2h22xqv2vuo"]
+
+[ext_resource type="Script" path="res://Scripts/dialogo.gd" id="1_p32f2"]
+[ext_resource type="Texture2D" uid="uid://dgp6g2tjfnfuk" path="res://Assets/Dialogo/Dialog/DialogBoxFaceset.png" id="2_y1t2v"]
+[ext_resource type="Texture2D" uid="uid://c6wdxb3q8m8el" path="res://Assets/NPCS/Ciencias/FacesetCiencias.png" id="3_2vbs1"]
+[ext_resource type="FontFile" uid="uid://dljs34xpcvkr6" path="res://EquipmentPro.otf" id="3_bwppa"]
+
+[node name="Dialogo" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p32f2")
+_name = NodePath("NinePatchRect/Name")
+_dialog = NodePath("NinePatchRect/Dialog")
+_faceset = NodePath("NinePatchRect/TextureRect")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 122.0
+offset_right = 251.0
+offset_bottom = 160.0
+texture = ExtResource("2_y1t2v")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 117.0
+offset_bottom = 22.0
+scale = Vector2(0.4, 0.4)
+text = "Goat"
+
+[node name="Dialog" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 11.0
+offset_right = 404.0
+offset_bottom = 66.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_bwppa")
+bbcode_enabled = true
+text = "teste"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 28.0
+offset_bottom = 34.0
+texture = ExtResource("3_2vbs1")
+expand_mode = 1

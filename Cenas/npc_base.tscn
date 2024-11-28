@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://xnfj74wjtj5f"]
+
+[ext_resource type="Script" path="res://Scripts/npc_base.gd" id="1_0vsby"]
+[ext_resource type="Texture2D" uid="uid://dumdw2jyld7b2" path="res://Assets/NPCS/NPCinicial/SpriteSheet.png" id="1_1se2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28syk"]
+atlas = ExtResource("1_1se2x")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1igh"]
+atlas = ExtResource("1_1se2x")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2f6h"]
+atlas = ExtResource("1_1se2x")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p20q"]
+atlas = ExtResource("1_1se2x")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3jyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28syk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1igh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2f6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p20q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abbov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkjsw"]
+radius = 24.0
+
+[node name="NPC_base" type="CharacterBody2D" node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_0vsby")
+_hud = NodePath("HUD")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w3jyj")
+animation = &"walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_abbov")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vkjsw")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

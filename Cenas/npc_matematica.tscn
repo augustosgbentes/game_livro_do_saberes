@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3 uid="uid://blqx7dm7ik0x"]
+
+[ext_resource type="PackedScene" uid="uid://xnfj74wjtj5f" path="res://Cenas/npc_base.tscn" id="1_ore5c"]
+[ext_resource type="Script" path="res://Scripts/npc_matematica.gd" id="2_8jkf4"]
+[ext_resource type="Texture2D" uid="uid://b48almyiy6ubg" path="res://Assets/NPCS/matematica/SpriteSheet.png" id="2_bam6l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxi06"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh7tn"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wxol"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xws"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjn4f"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ix2"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue52g"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mfiu"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4wb3"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o63fn"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibx6v"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtgkl"]
+atlas = ExtResource("2_bam6l")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5byq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxi06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh7tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wxol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4xws")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjn4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ix2")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue52g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mfiu")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4wb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o63fn")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibx6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtgkl")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="NPC_matematica" instance=ExtResource("1_ore5c")]
+script = ExtResource("2_8jkf4")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_5byq4")
+animation = &"walk_up"
+
+[node name="Timer" parent="." index="3"]
+autostart = true

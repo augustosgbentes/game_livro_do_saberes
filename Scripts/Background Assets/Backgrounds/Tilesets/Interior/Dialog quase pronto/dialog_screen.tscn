@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://ee52u8clunpu"]
+
+[ext_resource type="Texture2D" uid="uid://05unj31rudqe" path="res://char/Wizard/faceset.png" id="1_pn4ea"]
+[ext_resource type="Script" path="res://Cenas/dialog_screen.gd" id="1_yxevv"]
+[ext_resource type="FontFile" uid="uid://bwnbktyoh4xqe" path="res://equipment-pro-v1.1/EquipmentPro.ttf" id="2_iexo2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxb00"]
+line_spacing = 0.0
+font = ExtResource("2_iexo2")
+shadow_color = Color(0, 0, 0, 0.6)
+
+[node name="DialogScreen" type="Control" node_paths=PackedStringArray("_name", "_dialog", "_faceset", "_bnt1", "_bnt2", "_bnt3", "_bnt4")]
+custom_minimum_size = Vector2(350, 150)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -180.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_yxevv")
+_name = NodePath("BackGround/HContainer/VContainer/Name")
+_dialog = NodePath("BackGround/HContainer/VContainer/Dialog")
+_faceset = NodePath("BackGround/HContainer/Border/FaceSet")
+_bnt1 = NodePath("BackGround/HContainer/VContainer/Button")
+_bnt2 = NodePath("BackGround/HContainer/VContainer/Button2")
+_bnt3 = NodePath("BackGround/HContainer/VContainer/Button3")
+_bnt4 = NodePath("BackGround/HContainer/VContainer/Button4")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="HContainer" type="HBoxContainer" parent="BackGround"]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="BackGround/HContainer"]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="FaceSet" type="TextureRect" parent="BackGround/HContainer/Border"]
+custom_minimum_size = Vector2(70, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pn4ea")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="BackGround/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+text = "Mago"
+label_settings = SubResource("LabelSettings_rxb00")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_iexo2")
+
+[node name="Button" type="Button" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_iexo2")
+
+[node name="Button2" type="Button" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_iexo2")
+
+[node name="Button3" type="Button" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_iexo2")
+
+[node name="Button4" type="Button" parent="BackGround/HContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_iexo2")
+
+[connection signal="pressed" from="BackGround/HContainer/VContainer/Button" to="." method="_on_button_pressed"]

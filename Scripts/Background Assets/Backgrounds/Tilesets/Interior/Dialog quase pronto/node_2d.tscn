@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcon66j8h2ekw"]
+
+[ext_resource type="Script" path="res://Cenas/node_2d.gd" id="1_3xigk"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_3xigk")
+_hud = NodePath("Hud")
+
+[node name="Hud" type="CanvasLayer" parent="."]
